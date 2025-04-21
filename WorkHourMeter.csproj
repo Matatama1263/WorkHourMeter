@@ -9,6 +9,8 @@
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <PackageIcon>icon.png</PackageIcon>
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
+    <Authors>$matatama</Authors>
   </PropertyGroup>
 
   <ItemGroup>

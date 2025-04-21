@@ -13,7 +13,20 @@ namespace WorkHourMeter
         private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
         #endregion
 
-        #region 저장용 구조체
+        #region 저장용
+
+        private string GetSaveFilePath()
+        {
+            // 로컬 애플리케이션 데이터 폴더에 저장
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string appFolder = Path.Combine(appDataPath, "WorkHourMeter");
+            if (!Directory.Exists(appFolder))
+            {
+                Directory.CreateDirectory(appFolder);
+            }
+            return Path.Combine(appFolder, "Save.sv");
+        }
+
         public struct Config
         {
             public bool saveOnExit;
@@ -56,12 +69,13 @@ namespace WorkHourMeter
         #region 메소드
         private void LoadConfigAndSaveFile()
         {
+            string saveFilePath = GetSaveFilePath();
             // 설정 파일 로드
-            if (File.Exists("Save.sv"))
+            if (File.Exists(saveFilePath))
             {
                 try
                 {
-                    using (var reader = new BinaryReader(File.OpenRead("Save.sv")))
+                    using (var reader = new BinaryReader(File.OpenRead(saveFilePath)))
                     {
                         saveFile.totalElapsedTime = TimeSpan.FromTicks(reader.ReadInt64());
                         saveFile.actualWorkTime = TimeSpan.FromTicks(reader.ReadInt64());
@@ -263,6 +277,8 @@ namespace WorkHourMeter
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            string saveFilePath = GetSaveFilePath();
+
             if (config.saveOnExit)
             {
                 saveFile.totalElapsedTime = totalElapsedTime;
@@ -270,7 +286,7 @@ namespace WorkHourMeter
                 saveFile.trackingProcessNames = trackingProcessNames;
             }
 
-            using (var writer = new BinaryWriter(File.Open("Save.sv", FileMode.Create)))
+            using (var writer = new BinaryWriter(File.Open(saveFilePath, FileMode.Create)))
             {
                 writer.Write(saveFile.totalElapsedTime.Ticks);
                 writer.Write(saveFile.actualWorkTime.Ticks);
