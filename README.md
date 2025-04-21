@@ -14,8 +14,8 @@ WorkHourMeter는 사용자의 작업시간을 측정하고 관리할 수 있는 
 - **.NET Runtime**: .NET 8.0 이상 *(설치되어있지 않은 경우에는 첫 실행 시 설치 안내가 표시됩니다. 아마도...)*
 
 ## 설치 방법
-1. [Release 페이지](https://github.com/Matatama1263/WorkHourMeter/releases)에서 최신 버전의 zip파일을 다운로드합니다.
-2. 다운로드한 파일을 압축 해제한 후 WorkHourMeter.exe 파일을 실행합니다.
+1. [Release 페이지](https://github.com/Matatama1263/WorkHourMeter/releases)에서 최신 버전의 msi파일을 다운로드하고 실행하여 설치를 진행합니다.
+2. 설치가 완료되면 바탕화면에 생성된 바로가기를 실행하거나 설치된 경로로 이동하여 WorkHourMeter.exe파일을 실행해주세요.
 
 ## 사용법
 1. **추적중인 프로세스**의 편집 버튼을 클릭하여 추적할 프로세스들을 선택합니다.
