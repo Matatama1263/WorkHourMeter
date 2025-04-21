@@ -11,7 +11,7 @@ WorkHourMeter는 사용자의 작업시간을 측정하고 관리할 수 있는 
 
 ## 요구사항
 - **운영 체제**: Windows 10 이상
-- **.NET Runtime**: .NET 8.0 이상 *(설치되어있지 않은 경우에는 첫 실행 시 설치 안내가 표시됨니다. 아마도...)*
+- **.NET Runtime**: .NET 8.0 이상 *(설치되어있지 않은 경우에는 첫 실행 시 설치 안내가 표시됩니다. 아마도...)*
 
 ## 설치 방법
 1. [Release 페이지](https://github.com/Matatama1263/WorkHourMeter/releases)에서 최신 버전의 zip파일을 다운로드합니다.
